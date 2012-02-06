@@ -1,0 +1,24 @@
+`simplewiki`
+    A simple Wiki implementation.
+
+    Requirements:
+    -   SQLAlchemy
+    -   Creoleparser >= 0.7
+    -   genshi
+
+    You can obtain all packages in the Cheeseshop via easy_install.  You have
+    to have at least version 0.7 of Creoleparser.
+
+    Usage::
+
+        ./manage-simplewiki.py initdb
+        ./manage-simplewiki.py runserver
+
+    Or of course you can just use the application object
+    (`simplewiki.SimpleWiki`) and hook that into your favourite WSGI gateway.
+    The constructor of the application object takes a single argument which is
+    the SQLAlchemy URI for the database.
+
+    The management script for the devserver looks up the an environment var
+    called `SIMPLEWIKI_DATABASE_URI` and uses that for the database URI.  If
+    no such variable is provided "sqlite:////tmp/simplewiki.db" is assumed.
