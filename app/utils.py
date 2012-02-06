@@ -10,7 +10,7 @@
     :license: BSD.
 """
 import difflib
-import creoleparser
+import markdown
 from os import path
 from genshi import Stream
 from genshi.template import TemplateLoader
@@ -34,17 +34,6 @@ local_manager = LocalManager([local])
 request = local('request')
 application = local('application')
 
-# create a new creole parser
-creole_parser = creoleparser.Parser(
-    dialect=creoleparser.create_dialect(creoleparser.creole10_base,
-        wiki_links_base_url='',
-        wiki_links_path_func=lambda page_name: href(page_name),
-        wiki_links_space_char='_',
-        no_wiki_monospace=True
-    ),
-    method='html'
-)
-
 
 def generate_template(template_name, **context):
     """Load and generate a template."""
@@ -55,9 +44,9 @@ def generate_template(template_name, **context):
     return template_loader.load(template_name).generate(**context)
 
 
-def parse_creole(markup):
-    """Parse some creole markup and create a genshi stream."""
-    return creole_parser.generate(markup)
+def parse_markup(markup):
+    """Parse Markdown markup and create a genshi stream."""
+    return markdown.markdown(markup)
 
 
 def href(*args, **kw):

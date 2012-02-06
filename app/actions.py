@@ -13,7 +13,7 @@
     :license: BSD.
 """
 from difflib import unified_diff
-from app.utils import Response, generate_template, parse_creole, \
+from app.utils import Response, generate_template, parse_markup, \
      href, redirect, format_datetime
 from app.database import RevisionedPage, Page, Revision, session
 

@@ -13,7 +13,7 @@ from sqlalchemy import Table, Column, Integer, String, DateTime, \
      ForeignKey, MetaData, join
 from sqlalchemy.orm import relation, create_session, scoped_session, \
      mapper
-from app.utils import application, local_manager, parse_creole
+from app.utils import application, local_manager, parse_markup
 
 
 # create a global metadata
@@ -72,7 +72,7 @@ class Revision(object):
 
     def render(self):
         """Render the page text into a genshi stream."""
-        return parse_creole(self.text)
+        return parse_markup(self.text)
 
     def __repr__(self):
         return '<%s %r:%r>' % (
