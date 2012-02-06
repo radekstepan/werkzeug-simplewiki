@@ -9,15 +9,15 @@
     :copyright: (c) 2009 by the Werkzeug Team, see AUTHORS for more details.
     :license: BSD, see LICENSE for more details.
 """
-import os
+import os, sys
 from werkzeug import script
 
+SIMPLEWIKI_DATABASE_URI = 'db/sqlite.db'
 
 def make_wiki():
     """Helper function that creates a new wiki instance."""
     from app import SimpleWiki
-    database_uri = os.environ.get('SIMPLEWIKI_DATABASE_URI')
-    return SimpleWiki(database_uri or 'sqlite:////tmp/simplewiki.db')
+    return SimpleWiki('sqlite:///%s/%s' % (sys.path[0], SIMPLEWIKI_DATABASE_URI))
 
 
 def shell_init_func():
