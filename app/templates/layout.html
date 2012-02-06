@@ -6,11 +6,13 @@
       <title py:with="title = list(select('title/text()'))"><py:if
         test="title">${title} — </py:if>SimpleWiki</title>
       <link rel="stylesheet" type="text/css" href="${href('_shared', 'style.css')}" />
+      <link rel="stylesheet" type="text/css" href="${href('_shared', 'prettify.css')}" />
+      <script type="text/javascript" src="${href('_shared', 'prettify.js')}"></script>
       ${select('*[local-name()!="title"]')}
     </head>
   </py:match>
   <py:match path="body" once="true">
-    <body py:attrs="select('@*')">
+    <body py:attrs="select('@*')" onload="prettyPrint()">
       <div class="bodywrapper">
         <div class="header">
           <h1><a href="${href()}">Simple Wiki</a></h1>
