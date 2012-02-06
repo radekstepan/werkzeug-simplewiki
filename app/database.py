@@ -13,7 +13,7 @@ from sqlalchemy import Table, Column, Integer, String, DateTime, \
      ForeignKey, MetaData, join
 from sqlalchemy.orm import relation, create_session, scoped_session, \
      mapper
-from simplewiki.utils import application, local_manager, parse_creole
+from app.utils import application, local_manager, parse_creole
 
 
 # create a global metadata

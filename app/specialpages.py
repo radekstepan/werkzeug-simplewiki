@@ -9,9 +9,9 @@
     :copyright: (c) 2009 by the Werkzeug Team, see AUTHORS for more details.
     :license: BSD.
 """
-from simplewiki.utils import Response, Pagination, generate_template, href
-from simplewiki.database import RevisionedPage, Page
-from simplewiki.actions import page_missing
+from app.utils import Response, Pagination, generate_template, href
+from app.database import RevisionedPage, Page
+from app.actions import page_missing
 
 
 

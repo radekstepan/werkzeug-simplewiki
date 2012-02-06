@@ -41,6 +41,5 @@ def action_initdb():
     """Initialize the database"""
     make_wiki().init_database()
 
-
 if __name__ == '__main__':
     script.run()

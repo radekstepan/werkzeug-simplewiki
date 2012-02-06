@@ -14,10 +14,10 @@ from os import path
 from sqlalchemy import create_engine
 from werkzeug.utils import redirect
 from werkzeug.wsgi import ClosingIterator, SharedDataMiddleware
-from simplewiki.utils import Request, Response, local, local_manager, href
-from simplewiki.database import session, metadata
-from simplewiki import actions
-from simplewiki.specialpages import pages, page_not_found
+from app.utils import Request, Response, local, local_manager, href
+from app.database import session, metadata
+from app import actions
+from app.specialpages import pages, page_not_found
 
 
 #: path to shared data

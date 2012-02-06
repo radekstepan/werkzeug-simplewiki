@@ -13,9 +13,9 @@
     :license: BSD.
 """
 from difflib import unified_diff
-from simplewiki.utils import Response, generate_template, parse_creole, \
+from app.utils import Response, generate_template, parse_creole, \
      href, redirect, format_datetime
-from simplewiki.database import RevisionedPage, Page, Revision, session
+from app.database import RevisionedPage, Page, Revision, session
 
 
 def on_show(request, page_name):
